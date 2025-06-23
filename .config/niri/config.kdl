@@ -25,8 +25,7 @@ spawn-at-startup "xwayland-satellite"
 /-output "eDP-1" {
     // off
 
-    // this display is shit
-    mode "1366x768@59.996"
+    mode ""
     transform "normal"
 }
 
@@ -112,7 +111,7 @@ prefer-no-csd
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 overview {
-    zoom 0.3
+    zoom 0.5
     workspace-shadow {
         off
     }
@@ -162,16 +161,6 @@ animations {
 
 window-rule {
     default-column-width {}
-}
-
-window-rule {
-    match app-id="foot"
-    open-maximized true
-}
-
-window-rule {
-    match app-id="btop"
-    open-maximized true
 }
 
 window-rule { 
