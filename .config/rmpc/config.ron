@@ -92,6 +92,26 @@
             "C":       JumpToCurrent,
         },
     ),
+    cava: (
+    framerate: 60,
+    autosens: true,
+    sensitivity: 100,
+    lower_cutoff_freq: 50,
+    higher_cutoff_freq: 10000,
+    input: (
+        method: Pipewire,
+        source: "PipeWire Sound Server",
+        sample_rate: 48000,
+        channels: 2,
+        samble_bits: 32,
+    ),
+    smoothing: (
+        noise_reduction: 77,
+        monstercat: false,
+        waves: false,
+    ),
+    eq: []
+  ),
     search: (
         case_sensitive: false,
         mode: Contains,
@@ -109,29 +129,84 @@
         album_display_mode: SplitByDate,
         album_sort_by: Date,
     ),
-    tabs: [
+        tabs: [
         (
             name: "Queue",
             pane: Split(
-                direction: Horizontal,
-                panes: [(size: "65%", pane: Pane(Queue)), (size: "35%", pane: Pane(AlbumArt))],
+                direction: Vertical,
+                panes: [
+                    (
+                        size: "100%",
+                        borders: "NONE",
+                        pane: Split(
+                            borders: "NONE",
+                            direction: Horizontal,
+                            panes: [
+                                (
+                                    size: "70%",
+                                    borders: "ALL",
+                                    pane: Pane(Queue),
+                                ),
+                                (
+                                    size: "30%",
+                                    borders: "NONE",
+                                    pane: Split(
+                                        direction: Vertical,
+                                        panes: [
+                                            (
+                                                size: "75%",
+                                                borders: "ALL",
+                                                pane: Pane(AlbumArt),
+                                            ),
+                                            (
+                                                size: "30%",
+                                                borders: "ALL",
+                                                pane: Split(
+                                                    direction: Vertical,
+                                                    panes: [
+                                                        (
+                                                            size: "100%",
+                                                            pane: Pane(Cava),
+                                                        ),
+                                                    ]
+                                                ),
+                                            ),
+                                        ]
+                                    ),
+                                ),
+                            ]
+                        ),
+                    ),
+                ],
             ),
         ),
         (
             name: "Directories",
-            pane: Pane(Directories),
+            pane: Split(
+                direction: Horizontal,
+                panes: [(size: "100%", borders: "ALL", pane: Pane(Directories))],
+            ),
         ),
         (
             name: "Artists",
-            pane: Pane(Artists),
+            pane: Split(
+                direction: Horizontal,
+                panes: [(size: "100%", borders: "ALL", pane: Pane(Artists))],
+            ),
         ),
         (
             name: "Playlists",
-            pane: Pane(Playlists),
+            pane: Split(
+                direction: Horizontal,
+                panes: [(size: "100%", borders: "ALL", pane: Pane(Playlists))],
+            ),
         ),
         (
             name: "Search",
-            pane: Pane(Search),
+            pane: Split(
+                direction: Horizontal,
+                panes: [(size: "100%", borders: "ALL", pane: Pane(Search))],
+            ),
         ),
     ],
 )
