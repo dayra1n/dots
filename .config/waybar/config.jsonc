@@ -6,9 +6,9 @@
   "margin-top": 7,
   "reload_style_on_change": true,
 
-  "modules-left": ["custom/menu", "clock", "custom/weather"],
+  "modules-left": ["custom/menu", "clock"],
   "modules-center": ["niri/workspaces"],
-  "modules-right": ["tray", "mpd", "pulseaudio", "battery", "custom/power"],
+  "modules-right": ["tray", "mpd", "pulseaudio", "battery", "custom/weather", "custom/power"],
 
   /* custom stuff */
 
@@ -34,10 +34,10 @@
   "niri/workspaces": {
     "format": "{icon}",
     "format-icons": {
-      "active": "",
-      "default": "",
-      //"active": "",
-      //"default": ""
+      //"active": "",
+      //"default": "",
+      "active": "",
+      "default": ""
     }
   },
 
