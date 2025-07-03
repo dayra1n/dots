@@ -181,7 +181,7 @@ window-rule {
 }
 
 window-rule {
-    geometry-corner-radius 7
+    geometry-corner-radius 5
     clip-to-geometry true
 }
 
@@ -193,9 +193,7 @@ layer-rule {
 layer-rule {
     match namespace="waybar"
     match at-startup=true
-
-    opacity 0.9
-    geometry-corner-radius 7
+    opacity 0.8
 }
 
 
@@ -219,6 +217,7 @@ binds {
     Mod+Q repeat=false { close-window; }
 
     Mod+L hotkey-overlay-title="Lock the Screen: hyprlock"  { spawn "hyprlock"; }
+    Mod+H hotkey-overlay-title=null  { spawn "hyprpicker"; }
 
     Ctrl+Shift+Escape  { spawn "foot" "btop"; }
 

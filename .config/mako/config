@@ -1,6 +1,6 @@
 include=~/.cache/hellwal/mako-colors
 max-visible=5
-progress-color=#1b201b
+progress-color=#151c22
 history=0
 sort=-time
 layer=overlay
