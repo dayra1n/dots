@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# Command just for checking the weather of any location.
+
+curl -sL wttr.in/LOCATION?format=1 | sed 's/ \+/ /'
