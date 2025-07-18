@@ -37,7 +37,7 @@ do
       hypr2_pkgs='xdg-desktop-portal-hyprland xdg-desktop-portal-gtk qt5-wayland qt6-wayland waybar swww mako wl-clipboard brightnessctl'
       util_pkgs='man btop gvfs gvfs-afc p7zip unzip alsa-utils net-tools imagemagick'
       app_pkgs='librewolf-bin foot fuzzel dolphin mpv mpd rmpc cava neovim'
-      theme_pkgs='nwg-look papirus-icon-theme gnome-themes-extra hellwal waypaper'
+      theme_pkgs='nwg-look qt5ct qt6ct papirus-icon-theme gnome-themes-extra hellwal waypaper'
       fonts_pkgs='ttf-jetbrains-mono-nerd noto-fonts noto-fonts-cjk noto-fonts-emoji'
 
       paru -Syu $hypr_pkgs $hypr2_pkgs $util_pkgs $app_pkgs $theme_pkgs $fonts_pkgs
