@@ -1,0 +1,160 @@
+{
+  "position": "top",
+  "layer": "top",
+  "width": 1350,
+  "height": 32,
+  "margin-top": 7,
+  "fixed-center": true,
+  "reload_style_on_change": true,
+
+  "modules-left": ["custom/menu", "hyprland/workspaces"],
+  "modules-center": ["group/vitals", "clock", "group/others"],
+  "modules-right": ["tray", "network", "pulseaudio", "battery", "custom/power"],
+
+  /* Custom stuff */
+
+  "custom/arrow-left":  { "format": "", "tooltip": false },
+  "custom/arrow-right": { "format": "", "tooltip": false },
+  
+  "custom/power": {
+      "format": "{icon}",
+      "format": "⏻",
+      "on-click": "~/.local/bin/power",
+      "tooltip": false
+  },
+
+  "custom/menu": {
+      "format": "",
+      "on-click": "fuzzel",
+      "tooltip": true,
+      "tooltip-format": "App Launcher"
+  },
+
+  /* Groups */
+
+  "group/vitals": {
+    "orientation": "inherit",
+    "drawer": { 
+        "transition-left-to-right": true
+    },
+    "modules": [
+      "custom/arrow-left",
+      "cpu",
+      "memory",
+      "disk"
+    ]
+  },
+
+  "group/others": {
+    "orientation": "inherit",
+    "drawer": { 
+      "transition-left-to-right": false 
+    },
+    "modules": [
+      "custom/arrow-right",
+      "mpd"
+    ]
+  },
+
+  /* Modules */
+
+  "niri/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      //"active": "",
+      //"default": "",
+      "active": "",
+      "default": ""
+    }
+  },
+
+  "cpu": { 
+    "format": " {usage}󱉸",
+    "interval": 10
+  },
+
+   "memory": { 
+    "format": " {used}󱉸",
+    "interval": 10
+  },
+
+  "disk": { 
+    "path": "/",
+    "format": "󰆼 {percentage_used}󱉸",
+    "interval": 600
+  },
+
+  "mpd": {
+    "format": "{stateIcon} {artist} - {title} ",     // ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
+    "format-disconnected": "Disconnected ",
+    "format-stopped": "Stopped ",
+    "interval": 1,
+    "state-icons": {
+        "paused": "",
+        "playing": ""
+    },
+    "on-click": "rmpc togglepause",
+    "tooltip-format": "status: ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
+    "tooltip-format-disconnected": "MPD (disconnected)",
+    "max-length": 40
+  },
+
+  "tray": {
+    "icon-size": 18,
+    "spacing": 10
+  },
+
+  "pulseaudio": {
+    "format": "<span color='#E5C890'>{icon}</span>  {volume}",
+    "format-muted": "",  //
+    "format-icons": {
+        "headphone": "",
+        "default": ["", ""]
+    },
+    "scroll-step": 1,
+    "ignored-sinks": ["Easy Effects Sink"],
+    "tooltip-format": "{desc}"
+  },
+
+  "network": {
+    "format-wifi": "<span color='#606d84'></span>",
+    "format-ethernet": "<span color='#606d84'></span>",
+    "format-disconnected": "<span color='#9d5b61'></span> Disconnected",
+    "interval": 5,
+    "tooltip-format-wifi": "<span color='#9d5b61'></span> {bandwidthDownBytes} | <span color='#838d69'></span> {bandwidthUpBytes}"
+  },
+
+  "battery": {
+    "bat": "BAT1",
+    "interval": 60,
+    "states": {
+        "good": 100,
+        "warning": 30,
+        "critical": 15
+    },
+    "format": "<span color='#838d69'>{icon}</span> {capacity}",
+    "format-icons": ["󰁻", "󰁽", "󰁿", "󰂀", "󰁹"],
+    "format-warning": "<span color='#E5C890'>{icon}</span> {capacity}",
+    "format-critical": "<span color='#9d5b61'>{icon}</span> {capacity}",
+    "format-charging": "<span color='#ffb870'></span> {capacity}",
+    "tooltip-format": "{time} remaining",
+    "tooltip-format-charging": "{time} until full"
+  },
+
+  "clock": {
+    "format": "It's {:%A, %d %B - %I:%M %p}", //    
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+        "mode": "month",
+        "weeks-pos": "right",
+        "format": {
+            "months":   "<span color='#ffead3'><b>{}</b></span>",
+            "days":     "<span color='#c1c1c1'><b>{}</b></span>",
+            "weeks":    "<span color='#99ffdd'><b>W{}</b></span>",
+            "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+            "today":    "<span color='#5f8787'><b><u>{}</u></b></span>"
+        }
+    },
+    "interval": 1
+  }
+}

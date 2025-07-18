@@ -1,0 +1,28 @@
+#!/bin/sh
+
+# This script if for choosing a wallpaper using waypaper, setting the wallpaper with swww and generate a colorscheme from it using hellwal.
+# For using this script only as a wallpaper changer comment out the line: "hellwal -i "WALLPAPER_DIR/$SELECTED""
+
+set_wallpaper() {
+
+    sleep 1
+
+    WALLPAPER=$(swww query | sed -n 's/.*image: \(.*\)$/\1/p')
+     
+    hellwal -i "$WALLPAPER"
+
+    # Restart mako (if it's running)
+    if pgrep mako > /dev/null; then
+      pkill mako
+      setsid -f mako &
+    fi
+
+    # Reload waybar (if it's running)
+    if pgrep waybar > /dev/null; then
+      killall -SIGUSR2 waybar
+    fi
+
+    notify-send -t 3000 "Wallpaper and Colorscheme changed."
+}
+
+set_wallpaper

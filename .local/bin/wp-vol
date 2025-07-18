@@ -1,0 +1,33 @@
+#!/bin/sh
+
+# Like the brightness script, notify when volume changes.
+
+get_volume_info() {
+    volume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@)
+    volume_as_percent="${volume##*.}"
+}
+
+case $1 in
+    down)
+        wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+        ;;
+    up)
+        wpctl set-volume @DEFAULT_AUDIO_SINK@ +5%
+        ;;
+    *)
+        echo "Usage: $0 {down|up}"
+        exit 1
+        ;;
+esac
+
+# Get updated volume info
+get_volume_info
+
+# Send notification using Mako
+notify-send "Volume: ${volume_as_percent}%" \
+    -h int:value:$volume_as_percent \
+    -t 1200 \
+    -e \
+    -u low \
+    -h string:synchronous:volume-$volume_as_percent \
+    -h string:x-canonical-private-synchronous:volume
