@@ -14,7 +14,7 @@ u="$USER"
 
 while :
 do
-  read -p "Hi $u, would you like to install Pentaculum dependecies? (y/n): " resp
+  read -p "Hi $u, would you like to install Hyprland dependecies? (y/n): " resp
 
     if [[ $resp =~ ^[Nn]$ ]]; then
       exit 1
