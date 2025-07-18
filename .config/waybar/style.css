@@ -3,7 +3,6 @@
     font-size: 12px;
     font-weight: bold;
     border: none;
-    border-radius: 0;
     min-height: 0;
 }
 
@@ -29,11 +28,11 @@ window#waybar {
 
 tooltip {
     background-color: @background;
-    border-radius: 10px;
+    border-radius: 20px;
 }
 
 tooltip label {
-  color: @foreground;
+    color: @foreground;
 }
 
 /* Custom stuff */
