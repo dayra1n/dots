@@ -33,7 +33,7 @@ do
       echo -e "${YELLOW}Installing packages...${RC}"
 
       # define packages
-      hypr_pkgs='hyprland hypridle hyprlock hyprshot hyprpicker hyprpolkitagent qt5-wayland qt6-wayland'
+      hypr_pkgs='hyprland hypridle hyprlock hyprshot hyprpicker hyprsunset hyprpolkitagent qt5-wayland qt6-wayland'
       hypr2_pkgs='xdg-desktop-portal-hyprland xdg-desktop-portal-gtk waybar swww mako wl-clipboard brightnessctl'
       util_pkgs='man btop gvfs gvfs-afc p7zip unzip alsa-utils net-tools imagemagick'
       app_pkgs='librewolf-bin foot fuzzel thunar thunar-archive-plugin mpv mpd rmpc cava neovim'
