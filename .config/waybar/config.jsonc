@@ -65,6 +65,13 @@
       //"default": "",
       "active": "",
       "default": ""
+    },
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": []
     }
   },
 
@@ -105,15 +112,26 @@
   },
 
   "pulseaudio": {
-    "format": "<span color='#E5C890'>{icon}</span>  {volume}",
-    "format-muted": "",  //
+    "format": "{format_source}  <span color='#E5C890'>{icon}</span>  {volume}",
+    "format-source": "<span color='#9d5b61'></span> ON",
+    "format-source-muted": "  OFF",
+    "format-muted": "{format_source}  {volume}",
     "format-icons": {
-        "headphone": "",
-        "default": ["", ""]
+        "default": ["", ""],
+        "headphone": ""
     },
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
     "scroll-step": 1,
     "ignored-sinks": ["Easy Effects Sink"],
-    "tooltip-format": "{desc}"
+    "tooltip-format": "Left-Click: Mute Volume / Right-Click: Mute Mic"
+  },
+
+  "pulseaudio#mic": {
+      "format": "{format_source}",
+      "format-source": " ON",
+      "format-source-muted": "  OFF",
+      "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
   },
 
   "network": {
