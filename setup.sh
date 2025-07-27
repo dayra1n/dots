@@ -46,6 +46,7 @@ do
       
       # setup configs
       cp -r .config/ .local/ .bashrc ~/
+      touch ~/.config/mpd/database
 
       echo -e  "${BLUE}Enjoy Hyprland.${RC}"
       exit 1
